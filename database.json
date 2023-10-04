@@ -1,0 +1,122 @@
+{
+  "database_name": "Roulette",
+  "tables": [
+    {
+      "table_name": "eleve",
+      "columns": [
+        "id",
+        "classe",
+        "nomfamille",
+        "prenom",
+        "note",
+        "passage"
+      ],
+      "data": [
+        {
+          "id": 1,
+          "classe": "SIO2",
+          "nomfamille": "AUBRIET",
+          "prenom": "Aurélien",
+          "note": 0,
+          "passage": "non"
+        },
+        {
+          "id": 2,
+          "classe": "SIO1",
+          "nomfamille": "BARIAL",
+          "prenom": "Benjamin",
+          "note": 0,
+          "passage": "non"
+        },
+        {
+          "id": 3,
+          "classe": "SIO1",
+          "nomfamille": "GUILLAUME",
+          "prenom": "Corentin",
+          "note": 0,
+          "passage": "non"
+        },
+        {
+          "id": 4,
+          "classe": "SIO2",
+          "nomfamille": "BON",
+          "prenom": "Jean",
+          "note": 0,
+          "passage": "non"
+        },
+        {
+          "id": 5,
+          "classe": "SIO2",
+          "nomfamille": "NEYMAR",
+          "prenom": "Jean",
+          "note": 0,
+          "passage": "non"
+        },
+        {
+          "id": 6,
+          "classe": "SIO2",
+          "nomfamille": "DE LANGE",
+          "prenom": "Aymeric",
+          "note": 0,
+          "passage": "non"
+        },
+        {
+          "id": 7,
+          "classe": "SIO2",
+          "nomfamille": "Gadroy",
+          "prenom": "Léo",
+          "note": 0,
+          "passage": "non"
+        },
+        {
+          "id": 8,
+          "classe": "SIO2",
+          "nomfamille": "TURQUIER",
+          "prenom": "Victor",
+          "note": 0,
+          "passage": "non"
+        },
+        {
+          "id": 9,
+          "classe": "SIO2",
+          "nomfamille": "LHERME",
+          "prenom": "Hugo",
+          "note": 0,
+          "passage": "non"
+        },
+        {
+          "id": 10,
+          "classe": "SIO2",
+          "nomfamille": "CORDIER",
+          "prenom": "Eugène",
+          "note": 0,
+          "passage": "non"
+        },
+        {
+          "id": 11,
+          "classe": "SIO2",
+          "nomfamille": "NOËL",
+          "prenom": "Père",
+          "note": 0,
+          "passage": "non"
+        },
+        {
+          "id": 12,
+          "classe": "SIO3",
+          "nomfamille": "MORTEL",
+          "prenom": "Lee",
+          "note": 0,
+          "passage": "non"
+        },
+        {
+          "id": 13,
+          "classe": "SIO3",
+          "nomfamille": "LAMOUREUX",
+          "prenom": "Antonin",
+          "note": 0,
+          "passage": "non"
+        }
+      ]
+    }
+  ]
+}
