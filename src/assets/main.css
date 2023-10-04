@@ -7,6 +7,24 @@
 
   font-weight: normal;
 }
+.button-select {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.input {
+  width: 60%;
+}
 
 a,
 .green {
