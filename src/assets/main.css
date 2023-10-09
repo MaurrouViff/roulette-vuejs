@@ -1,12 +1,41 @@
-@import './base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+html, body {
+  height: 100%;
+  font-family: popping, sans-serif;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  background-image: url("src/assets/background/napoléon.jpg");
+
+}
+
+.container {
+  flex-grow: 1;
+}
+
+.navbar {
+  min-height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  margin-right: 50px;
+}
+
+.nav-item {
+  list-style-type: none;
+}
+
 .button-select {
   background-color: #3498db;
   color: #fff;
@@ -14,7 +43,7 @@
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
@@ -36,22 +65,46 @@
   transition: all 0.3s ease 0s;
   text-decoration: none;
 }
+.blue-btn:hover {
+  opacity: 1;
+}
+/* Style de base pour le <select> */
+select {
+  padding: 10px; /* Espace intérieur */
+  font-size: 16px; /* Taille de la police */
+  border: 1px solid rgba(12, 239, 205, 0.93); /* Bordure légère */
+  border-radius: 4px; /* Coins arrondis */
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+  color: #ffffff; /* Couleur du texte */
+  width: 10%; /* Largeur à 100% du contenant parent */
+  transition: border-color 0.2s ease-in-out; /* Transition de couleur de bordure */
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+/* Style lorsque le <select> est en focus (sélectionné) */
+select:focus {
+  border-color: #007bff; /* Couleur de bordure lorsqu'il est en focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Ombre légère lorsqu'il est en focus */
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+/* Style pour les options du <select> */
+select option {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Style pour le menu déroulant (flèche) */
+select::after {
+  content: '\25BC'; /* Flèche vers le bas */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none; /* Empêche l'interaction avec la flèche */
+}
+.white {
+  color: white;
 }
