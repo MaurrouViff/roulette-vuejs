@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h1 class="white">Tirage au sort d'un élève</h1>
+    <h1>Tirage au sort des élèves absent</h1>
     <div>
-      <label for="classe" class="white">Sélectionnez une classe :</label><br />
-      <select v-model="classeSelectionnee" id="classe">
+      <label for="classe">Sélectionnez une classe : </label>
+      <select v-model="classeSelectionnee">
         <option value="">Toutes les classes</option>
         <option v-for="classe in classes" :key="classe">{{ classe }}</option>
-      </select><br />
-      <button @click="tirerAuSort" class="button-select">Tirer au sort</button>
+      </select>
+      <button @click="tirerAuSort">Tirer au sort</button>
     </div>
     <div v-if="eleveTire">
       <p>ID: {{ eleveTire.id }}</p>
@@ -29,21 +29,24 @@ export default {
       eleves: [],
       eleveTire: null,
       classes: [], // Tableau des classes disponibles
-      classeSelectionnee: '' // Classe sélectionnée dans le menu dépliant
+      classeSelectionnee: '', // Classe sélectionnée dans le menu dépliant
+      elevesFiltres: [] // Élèves filtrés par "passage"
     };
   },
   methods: {
     tirerAuSort() {
-      let elevesFiltres = this.eleves;
-
-      if (this.classeSelectionnee !== '') {
-        // Filtrer les élèves par classe si une classe est sélectionnée
-        elevesFiltres = this.eleves.filter(eleve => eleve.classe === this.classeSelectionnee);
+      if (this.elevesFiltres.length > 0) {
+        const randomIndex = Math.floor(Math.random() * this.elevesFiltres.length);
+        this.eleveTire = this.elevesFiltres[randomIndex];
       }
-
-      if (elevesFiltres.length > 0) {
-        const randomIndex = Math.floor(Math.random() * elevesFiltres.length);
-        this.eleveTire = elevesFiltres[randomIndex];
+    },
+    filtrerEleves() {
+      if (this.classeSelectionnee === '') {
+        this.elevesFiltres = this.eleves.filter(eleve => eleve.passage === 'oui');
+      } else {
+        this.elevesFiltres = this.eleves.filter(
+            eleve => eleve.classe === this.classeSelectionnee && eleve.passage === 'oui'
+        );
       }
     }
   },
@@ -54,10 +57,16 @@ export default {
 
           // Extraire les classes uniques du JSON
           this.classes = [...new Set(this.eleves.map(eleve => eleve.classe))];
+
+          // Filtrer les élèves par "passage" lors du chargement initial
+          this.filtrerEleves();
         })
         .catch(error => {
           console.error('Erreur lors du chargement des données :', error);
         });
+  },
+  watch: {
+    classeSelectionnee: 'filtrerEleves' // Réexécute la fonction de filtrage lorsque la classe sélectionnée change
   }
 };
 </script>
