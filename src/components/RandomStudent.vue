@@ -13,6 +13,7 @@
       <p>ID: {{ eleveTire.id }}</p>
       <p>Nom: {{ eleveTire.nomfamille }}</p>
       <p>Prénom: {{ eleveTire.prenom }}</p>
+      <p>Note : {{eleveTire.classe}}</p>
       <p>Passage: {{ eleveTire.passage }}</p>
       <p>Note: {{ eleveTire.note }}</p>
     </div>
