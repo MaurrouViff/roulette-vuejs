@@ -26,11 +26,15 @@
   width: 60%;
 }
 
-a,
-.green {
+.blue-btn {
+  padding: 15px 40px;
+  background: linear-gradient(135deg, #006466 24%, #186785 50%, #186785 79%, #316AA4 100%);
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  opacity: 0.8;
+  transition: all 0.3s ease 0s;
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
 }
 
 @media (hover: hover) {
