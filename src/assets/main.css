@@ -8,14 +8,24 @@ body {
   flex-direction: column;
   padding: 0;
   margin: 0;
-  background-image: url("src/assets/background/napoléon.jpg");
+  background-color: rgba(4, 121, 85, 0.82);
 
 }
-
+.header {
+  padding: 20px;
+  margin-bottom: -10px;
+  background-color: black;
+}
 .container {
   flex-grow: 1;
-}
 
+}
+.hr-gradient {
+  height: 4px;
+  border: 0;
+  background-image: linear-gradient(135deg, #006466 24%, #186785 50%, #186785 79%, #316AA4 100%);
+  display: flex;
+}
 .navbar {
   min-height: 70px;
   display: flex;

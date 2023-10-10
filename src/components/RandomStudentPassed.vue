@@ -2,11 +2,11 @@
   <div>
     <h1>Tirage au sort des élèves absent</h1>
     <div>
-      <label for="classe">Sélectionnez une classe : </label>
+      <label for="classe">Sélectionnez une classe : </label><br>
       <select v-model="classeSelectionnee">
         <option value="">Toutes les classes</option>
         <option v-for="classe in classes" :key="classe">{{ classe }}</option>
-      </select>
+      </select><br>
       <button @click="tirerAuSort">Tirer au sort</button>
     </div>
     <div v-if="eleveTire">

@@ -13,9 +13,12 @@
       <p>ID: {{ eleveTire.id }}</p>
       <p>Nom: {{ eleveTire.nomfamille }}</p>
       <p>Prénom: {{ eleveTire.prenom }}</p>
-      <p>Classe : {{eleveTire.classe}}</p>
+      <p>Classe : {{ eleveTire.classe }}</p>
       <p>Passage: {{ eleveTire.passage }}</p>
-      <p>Note: {{ eleveTire.note }}</p>
+      <p>Note : {{eleveTire.note}}</p>
+      <label for="note" class="white">Note :</label>
+      <input type="number" v-model="eleveTire.note" id="note" />
+      <button @click="sauvegarderNote" class="button-select">Sauvegarder la note</button>
     </div>
   </div>
 </template>
@@ -28,8 +31,8 @@ export default {
     return {
       eleves: [],
       eleveTire: null,
-      classes: [], // Tableau des classes disponibles
-      classeSelectionnee: '' // Classe sélectionnée dans le menu dépliant
+      classes: [],
+      classeSelectionnee: ''
     };
   },
   methods: {
@@ -37,7 +40,6 @@ export default {
       let elevesFiltres = this.eleves;
 
       if (this.classeSelectionnee !== '') {
-        // Filtrer les élèves par classe si une classe est sélectionnée
         elevesFiltres = this.eleves.filter(eleve => eleve.classe === this.classeSelectionnee);
       }
 
@@ -45,19 +47,35 @@ export default {
         const randomIndex = Math.floor(Math.random() * elevesFiltres.length);
         this.eleveTire = elevesFiltres[randomIndex];
       }
+    },
+    sauvegarderNote() {
+      // La note est déjà mise à jour dans eleveTire grâce à v-model
+
+      // Mettez à jour localement la mise à jour de la note
+      const eleveIndex = this.eleves.findIndex(eleve => eleve.id === this.eleveTire.id);
+      if (eleveIndex !== -1) {
+        this.eleves[eleveIndex].note = this.eleveTire.note;
+        localStorage.setItem('eleves', JSON.stringify(this.eleves));
+      } else {
+        console.error('Impossible de trouver l\'élève dans le tableau.');
+      }
     }
   },
   mounted() {
-    axios.get('/database.json')
-        .then(response => {
-          this.eleves = response.data.tables[0].data;
-
-          // Extraire les classes uniques du JSON
-          this.classes = [...new Set(this.eleves.map(eleve => eleve.classe))];
-        })
-        .catch(error => {
-          console.error('Erreur lors du chargement des données :', error);
-        });
+    // Chargez les données depuis le stockage local s'il y en a
+    const elevesData = localStorage.getItem('eleves');
+    if (elevesData) {
+      this.eleves = JSON.parse(elevesData);
+    } else {
+      axios.get('/database.json')
+          .then(response => {
+            this.eleves = response.data.tables[0].data;
+            this.classes = [...new Set(this.eleves.map(eleve => eleve.classe))];
+          })
+          .catch(error => {
+            console.error('Erreur lors du chargement des données :', error);
+          });
+    }
   }
 };
 </script>

@@ -6,7 +6,7 @@
 
 <script>
 
-import RandomStudentAbsent from "/components/RandomStudentPassed.vue";
+import RandomStudentAbsent from "./components/RandomStudentPassed.vue";
 
 
 export default {
