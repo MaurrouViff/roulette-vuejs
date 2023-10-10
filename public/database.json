@@ -26,7 +26,7 @@
           "nomfamille": "BARIAL",
           "prenom": "Benjamin",
           "note": 0,
-          "passage": "non"
+          "passage": "absent"
         },
         {
           "id": 3,
@@ -90,7 +90,7 @@
           "nomfamille": "CORDIER",
           "prenom": "Eugène",
           "note": 0,
-          "passage": "non"
+          "passage": "absent"
         },
         {
           "id": 11,
@@ -98,7 +98,7 @@
           "nomfamille": "NOËL",
           "prenom": "Père",
           "note": 0,
-          "passage": "non"
+          "passage": "absent"
         },
         {
           "id": 12,
@@ -114,7 +114,7 @@
           "nomfamille": "LAMOUREUX",
           "prenom": "Antonin",
           "note": 0,
-          "passage": "non"
+          "passage": "absent"
         }
       ]
     }
