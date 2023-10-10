@@ -51,7 +51,7 @@ export default {
     }
   },
   mounted() {
-    axios.get('/database.json')
+    axios.get('public/database.json')
         .then(response => {
           this.eleves = response.data.tables[0].data;
 
