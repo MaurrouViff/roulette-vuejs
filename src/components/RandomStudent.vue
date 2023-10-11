@@ -8,7 +8,10 @@
         <option v-for="classe in classes" :key="classe">{{ classe }}</option>
       </select><br />
       <button @click="tirerAuSort" class="button-select">Tirer au sort</button><br /><br>
-      <button @click="resetNotes" class="button-select">Réinitialiser les notes à 0</button><br />
+      <label for="reset" class="white">Options :</label><br>
+      <button @click="resetNotes" class="button-select">Réinitialiser les notes à 0</button><br /><br />
+      <button class="button-select" @click="resetPassage">Réinitialiser les passages</button><br /><br />
+      <label for="information" class="white">Informations de l'élève : </label>
     </div>
     <div v-if="eleveTire">
       <p>ID: {{ eleveTire.id }}</p>
@@ -54,7 +57,7 @@ export default {
               this.classes = [...new Set(this.eleves.map(eleve => eleve.classe))];
             })
             .catch(error => {
-              console.error('Erreur lors du chargement des données :', error);
+              console.error('Erreur lors du chargement des données : ', error);
             });
       }
     },
@@ -108,10 +111,21 @@ export default {
       localStorage.setItem('eleves', JSON.stringify(this.eleves));
 
       console.log('Toutes les notes ont été réinitialisées à 0.');
+    },
+    resetPassage() {
+      // Parcourez la liste des élèves et réinitialisez tous les passages à "non"
+      this.eleves.forEach(eleve => {
+        eleve.passage = 'non';
+      });
+
+      // Stockez les données localement dans localStorage
+      localStorage.setItem('eleves', JSON.stringify(this.eleves));
+
+      console.log('Tous les passages ont été réinitialisés à "non".');
     }
   },
   mounted() {
-    // Chargez les données depuis le stockage local ou le fichier JSON initial
+    // Charge les données depuis le stockage local ou le fichier JSON initial
     this.chargerDonneesDepuisFichier();
   }
 };
